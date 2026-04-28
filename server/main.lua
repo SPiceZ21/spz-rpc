@@ -19,7 +19,7 @@ RegisterNetEvent("SPZ:requestRpcSync", function()
 end)
 
 -- Sync RPC state for any player that joins mid-race
-AddEventHandler(SPZ.Events.PLAYER_CONNECTED, function(source)
+AddEventHandler("SPZ:playerConnected", function(source)
     -- Slight delay to let the client finish loading
     Citizen.SetTimeout(5000, function()
         TriggerClientEvent("SPZ:requestRpcSync", source)
