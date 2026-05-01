@@ -13,6 +13,9 @@
 --   ENDED           →  "Finished P2 · Maze Bank Circuit"
 --   SPECTATING      →  "Spectating"
 --   DNF             →  "DNF · Maze Bank Circuit"
+-- 
+
+SPZ = exports["spz-lib"]:GetCoreObject()
 
 -- ── State Tracking ─────────────────────────────────────────────────────────
 
