@@ -1,7 +1,15 @@
 -- spz-rpc/server/main.lua
 -- Broadcasts race context data to clients so they can build accurate presence.
 -- Most data already flows via spz-races events; this only fills gaps.
-SPZ = exports["spz-lib"]:GetCoreObject()
+local SPZ = nil
+Citizen.CreateThread(function()
+    while not SPZ do
+        pcall(function()
+            SPZ = exports["spz-lib"]:GetCoreObject()
+        end)
+        if not SPZ then Citizen.Wait(500) end
+    end
+end)
 
 -- Re-broadcast queue count to newly connected players so their RPC is
 -- immediately populated rather than waiting for the next natural update.
