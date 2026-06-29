@@ -19,6 +19,6 @@ server_scripts {
 }
 
 dependencies {
-  'spz-lib',
+  'ox_lib',
   'spz-core',
 }

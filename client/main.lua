@@ -1,19 +1,12 @@
 -- spz-rpc/client/main.lua
 -- Revamped Discord Rich Presence for live race status, position, class, queue, and freeroam.
 
-local SPZ = nil
 local Config = _G.Config or {}
 local queueJoinTime = nil
 local lastInQueue = false
 
 Citizen.CreateThread(function()
     print("^3[spz-rpc] Starting Dynamic Discord Rich Presence...^7")
-    while not SPZ do
-        pcall(function()
-            SPZ = exports["spz-lib"]:GetCoreObject()
-        end)
-        if not SPZ then Citizen.Wait(1000) end
-    end
 
     -- Initial application registration
     SetDiscordAppId(Config.AppId or "YOUR_DISCORD_APP_ID")
