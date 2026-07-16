@@ -10,7 +10,7 @@
 | Server | `server/main.lua` | Presence data provision, player state queries         |
 
 ## Dependencies
-- spz-lib
+- ox_lib
 - spz-core
 
 ## CI
