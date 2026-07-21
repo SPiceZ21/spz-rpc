@@ -162,10 +162,12 @@ Citizen.CreateThread(function()
 
         SetRichPresence(details .. " - " .. state)
 
-        if hasTimer and customStartTime > 0 then
-            SetDiscordRichPresenceStartTime(customStartTime)
-        else
-            SetDiscordRichPresenceStartTime(0)
+        if type(SetDiscordRichPresenceStartTime) == "function" then
+            if hasTimer and customStartTime > 0 then
+                SetDiscordRichPresenceStartTime(customStartTime)
+            else
+                SetDiscordRichPresenceStartTime(0)
+            end
         end
     end
 
