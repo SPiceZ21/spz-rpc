@@ -25,7 +25,7 @@ Citizen.CreateThread(function()
 
         -- Track queue join time to show elapsed time waiting
         if inQueue and not lastInQueue then
-            queueJoinTime = os.time()
+            queueJoinTime = GetCloudTimeAsInt()   -- os.* is unavailable client-side
         elseif not inQueue then
             queueJoinTime = nil
         end
@@ -76,7 +76,7 @@ Citizen.CreateThread(function()
                 local raceTime = LocalPlayer.state.raceTime
                 if raceTime and raceTime > 0 then
                     hasTimer = true
-                    customStartTime = os.time() - math.floor((GetGameTimer() - raceTime) / 1000)
+                    customStartTime = GetCloudTimeAsInt() - math.floor((GetGameTimer() - raceTime) / 1000)
                 end
             end
 
