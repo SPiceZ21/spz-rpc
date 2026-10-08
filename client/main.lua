@@ -171,11 +171,6 @@ Citizen.CreateThread(function()
         end
     end
 
-    -- Server sync event handler
-    RegisterNetEvent("SPZ:rpcSync", function()
-        UpdatePresence()
-    end)
-
     -- Real-time state bag triggers for responsive status transitions
     AddStateBagChangeHandler("raceState", "global", function()
         UpdatePresence()
