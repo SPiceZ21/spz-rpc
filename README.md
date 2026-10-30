@@ -1,40 +1,42 @@
 # spz-rpc
 
-> Discord rich presence · `v1.0.1`
+> Discord Rich Presence.
+
+![version](https://img.shields.io/badge/version-1.0.1-ff6200) ![SPiceZ-Core](https://img.shields.io/badge/SPiceZ--Core-beta-18181b)
 
 ## Overview
 
-`spz-rpc` shows what the player is doing in Discord — idle, free roam, queued, voting, or
-racing with their position, class and track. State comes from the core and race engine;
-the client refreshes presence on an interval Discord will accept.
+Shows live status in the player's Discord profile: racing or freeroam, position, class and track.
 
-## Structure
+## Features
 
-| Side | File | Purpose |
-|---|---|---|
-| Shared | `config.lua` | Application ID, branding, asset keys, interval |
-| Client | `client/main.lua` | Presence updates and state polling |
-| Server | `server/main.lua` | Presence data provision |
+- Live race status
+- Track and class
 
-## Setup
+## Requirements
 
-1. Create an application at <https://discord.com/developers/applications>.
-2. Upload images under **Rich Presence → Art Assets**.
-3. Put the application ID in `Config.AppId` and match `Config.Assets` keys to your asset
-   names.
+| Resource | Type |
+|---|---|
+| `ox_lib` | third-party |
+| `spz-core` | SPiceZ module |
 
-| Key | Default | Meaning |
-|---|---|---|
-| `Config.AppId` | — | Discord application ID |
-| `Config.ServerName` | `"SPiceZ Racing"` | Text shown in presence |
-| `Config.ServerUrl` | `""` | Join button URL (empty disables it) |
-| `Config.UpdateIntervalMs` | `15000` | Refresh interval — Discord throttles anything faster |
-| `Config.Assets` | see config | Art asset keys per state (`logo`, `freeroam`, `queue`, `polling`, …) |
+## Installation
 
-## Dependencies
+Included in the [txAdmin recipe](https://github.com/SPiceZ21/spz-txrecipe). Manual install:
 
-`ox_lib` · `spz-core`
+1. Download `spz-rpc` from GitHub (latest release, or the repository) into your `resources` folder.
+2. Add to `server.cfg`, after its requirements:
+
+```cfg
+ensure spz-rpc
+```
+
+## Configuration
+
+- `config.lua`
+
+See the file for every option.
 
 ---
 
-Part of [SPiceZ-Core](../README.md) · GPL-3.0
+Part of **SPiceZ-Core** — [documentation](https://github.com/SPiceZ21/Docs) · [all modules](https://github.com/SPiceZ21/Docs/blob/main/modules/README.md)
